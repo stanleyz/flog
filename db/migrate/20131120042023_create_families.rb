@@ -1,7 +1,7 @@
 class CreateFamilies < ActiveRecord::Migration
   def change
     create_table :families do |t|
-      t.string :blog
+      t.string :name
 
       t.timestamps
     end
