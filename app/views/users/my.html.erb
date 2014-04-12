@@ -1,0 +1,31 @@
+<h1>Listing families</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Nickname</th>
+      <th>Admin?</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @families.each do |f| %>
+      <tr>
+        <td><%= f.family.name %></td>
+        <td><%= f.nickname %></td>
+        <td><%= f.admin ? "Yes":"No" %></td>
+        <td><%= link_to 'Show', f.family %></td>
+        <td><%= link_to 'Edit', edit_family_path(f.family) %></td>
+        <td><%= link_to 'Destroy', f.family, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Family', new_family_path %>

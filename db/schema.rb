@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131205031437) do
+ActiveRecord::Schema.define(version: 20131206024444) do
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "family_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", force: true do |t|
+    t.text     "content"
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "families", force: true do |t|
     t.string   "name"
@@ -19,10 +35,35 @@ ActiveRecord::Schema.define(version: 20131205031437) do
     t.datetime "updated_at"
   end
 
-  create_table "user_families", force: true do |t|
+  create_table "family_users", force: true do |t|
     t.integer  "user_id"
     t.integer  "family_id"
     t.string   "nickname"
+    t.boolean  "admin",      default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "post_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "filepath"
+    t.integer  "family_id"
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.integer  "post_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

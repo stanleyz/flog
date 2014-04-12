@@ -128,7 +128,7 @@ DEPENDENCIES
   jquery-rails
   mysql2
   omniauth
-  rails (= 4.0.1)
+  rails
   sass-rails (~> 4.0.0)
   sdoc
   turbolinks

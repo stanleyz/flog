@@ -1,3 +1,4 @@
 class Family < ActiveRecord::Base
-  has_many :members, :through => :user_families, :class_name => "Users" 
+  has_many :members, :class_name => "FamilyUser" 
+  has_many :posts
 end
