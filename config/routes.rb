@@ -1,9 +1,11 @@
 Flog::Application.routes.draw do
-  get "users/my", :as => "user_root"
   root 'families#index' 
+
+  get "users/my", :as => "user_root"
   devise_for :users 
 
   resources :families, :posts
+  get 'families/:project_id/post/new' => 'posts#new', :as => 'new_family_post'
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
