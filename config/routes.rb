@@ -5,7 +5,7 @@ Flog::Application.routes.draw do
   devise_for :users 
 
   resources :families, :posts
-  get 'families/:project_id/post/new' => 'posts#new', :as => 'new_family_post'
+  get 'families/:family_id/post/new' => 'posts#new', :as => 'new_family_post'
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

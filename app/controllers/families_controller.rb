@@ -7,7 +7,7 @@ class FamiliesController < ApplicationController
   end
 
   def show
-    @posts = @family.posts.all
+    @posts = Post.where(family_id: @family.id)
   end
 
   def new

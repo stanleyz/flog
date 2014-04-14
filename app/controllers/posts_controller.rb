@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :set_family, only: [:new, :create]
 
   def index
     @posts = Post.all
@@ -11,6 +10,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @post.family_id = params[:family_id]
   end
 
   def edit
@@ -18,7 +18,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.family = @family
     @post.user = current_user
 
     respond_to do |format|
@@ -57,12 +56,7 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
 
-    def set_family
-      project_id = params[:project_id] || (params[:post] && params[:post][:project_id])
-      @family = Family.find(project_id)
-    end
-
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, :family_id, :filepath)
     end
 end

@@ -19,7 +19,10 @@
     <%= f.label :content %><br>
     <%= f.text_area :content %>
   </div>
-  <%= f.hidden_field :project_id, :value => @family.id %>
+  <div class="field">
+    <%= f.file_field :filepath %>
+  </div>
+  <%= f.hidden_field :family_id %>
   <div class="actions">
     <%= f.submit %>
   </div>

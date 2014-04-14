@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails'
 gem 'devise'
 gem 'omniauth'
+gem 'carrierwave'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
