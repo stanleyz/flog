@@ -10,5 +10,8 @@
   <%= @post.content %>
 </p>
 
+<p>
+  <%= image_tag @post.filepath_url %>
+</p>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', @post.family %>

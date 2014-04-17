@@ -21,6 +21,7 @@
   </div>
   <div class="field">
     <%= f.file_field :filepath %>
+    <%= image_tag @post.filepath if @post.filepath? %>
   </div>
   <%= f.hidden_field :family_id %>
   <div class="actions">
