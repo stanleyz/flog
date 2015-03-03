@@ -6,7 +6,7 @@ class CreatePostTypes < ActiveRecord::Migration
       t.timestamps
     end
 
-    PostTypes.create(name: "text")
-    PostTypes.create(name: "image")
+    PostType.create(name: "text")
+    PostType.create(name: "image")
   end
 end
